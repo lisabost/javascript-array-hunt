@@ -99,37 +99,75 @@ $(document).ready(function () {
         Find the first string that contains an 'n'.
         Output it to td#firstEnn
          */
-
+        var word;
+        for(var str of myArray) {
+            if(str.includes("n")) {
+                word = str;
+                break;
+            }
+        }
+        $("td#firstEnn").text(word);
 
         /*
         Find all of the strings with less than 6 characters.
         Output them to td#lessThanSix
          */
-
+        var lessThanSix = [];
+        myArray.forEach(function(element, index) {
+            if(element.length < 6) {
+                lessThanSix.push(element);
+            }
+        });
+        var less = lessThanSix.join(" ");
+        $("td#lessThanSix").text(less);
 
         /*
         Find the longest string in the array.
         Output it to td#longName
          */
+        var longestWord;
+        var wordLength = 0;
+        myArray.forEach(function(element, index) {
+            if(element.length > wordLength) {
+                longestWord = element;
+                wordLength = element.length;
+            }
+        }) ;
+        $("td#longName").text(longestWord);
 
 
         /*
         Find all of the strings that do not contain the letter 's'.
         Output them to td#noEss
          */
-
+        var hasNoS = [];
+        myArray.forEach(function (element, index){
+            if(element.indexOf("s") === -1) {
+                hasNoS.push(element);
+            }
+        });
+        $("td#noEss").text(hasNoS.join(" "));
 
         /*
         Output all of the strings, but with all of their vowels
         in uppercase, to td#upperVowels
          */
-
+        var upperVowels = [];
+        myArray.forEach(function(element, index) {
+            var replacement = element.replaceAll("a", "A");
+            replacement = replacement.replaceAll("e", "E");
+            replacement = replacement.replaceAll("i", "I");
+            replacement = replacement.replaceAll("o", "O");
+            replacement = replacement.replaceAll("u", "U");
+            upperVowels.push(replacement);
+        });
+        $("td#upperVowels").text(upperVowels);
 
         /*
         Output all of the strings in reverse order and separated by
         ' - ' to td#reverseDash
          */
-
+        $("td#reverseDash").text(myArray.reverse().join(" - "));
 
     }
 
