@@ -161,7 +161,7 @@ $(document).ready(function () {
             replacement = replacement.replaceAll("u", "U");
             upperVowels.push(replacement);
         });
-        $("td#upperVowels").text(upperVowels);
+        $("td#upperVowels").text(upperVowels.join(" "));
 
         /*
         Output all of the strings in reverse order and separated by
